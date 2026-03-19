@@ -17,7 +17,7 @@ form.addEventListener('submit', (event) => {
 });
 
 async function searchTrees(commonName) {
-  setStatus('Searching tree inventory…', false);
+  setStatus('Searching tree inventory…', 'loading');
   tableWrapper.hidden = true;
   resultsBody.innerHTML = '';
 
@@ -43,14 +43,14 @@ async function searchTrees(commonName) {
     console.error('Tree search error:', error);
     setStatus(
       `Could not load tree data. Please check your connection and try again. (${error.message})`,
-      true
+      'error'
     );
   }
 }
 
 function renderTable(trees, searchTerm) {
   if (trees.length === 0) {
-    setStatus(`No trees found matching "${searchTerm}". Try a different name.`, false);
+    setStatus(`No trees found matching "${searchTerm}". Try a different name.`, '');
     return;
   }
 
@@ -78,9 +78,9 @@ function renderTable(trees, searchTerm) {
   tableWrapper.hidden = false;
 }
 
-function setStatus(message, isError) {
+function setStatus(message, state = '') {
   statusMessage.textContent = message;
-  statusMessage.className = 'status-message' + (isError ? ' error' : '');
+  statusMessage.className = 'status-message' + (state ? ` ${state}` : '');
 }
 
 // Prevent XSS by escaping user-sourced text before inserting it into the DOM

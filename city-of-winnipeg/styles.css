@@ -135,6 +135,23 @@ a:hover {
   font-weight: 600;
 }
 
+.status-message.loading::after {
+  content: '';
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  margin-left: 0.5em;
+  border: 2px solid #2c6b2f;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 /* ==========================================
    Results Table
    ========================================== */
