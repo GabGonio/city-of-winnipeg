@@ -1,4 +1,5 @@
 const form = document.getElementById('searchForm');
+const commonNameInput = document.getElementById('commonName');
 const statusMessage = document.getElementById('statusMessage');
 const tableWrapper = document.getElementById('tableWrapper');
 const resultsBody = document.getElementById('resultsBody');
@@ -7,9 +8,11 @@ const tableCaption = document.getElementById('tableCaption');
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  const commonName = document.getElementById('commonName').value.trim();
+  const commonName = commonNameInput.value.trim();
 
   if (!commonName) {
+    setStatus('Please enter a tree name before searching.', 'error');
+    commonNameInput.focus();
     return;
   }
 
@@ -54,7 +57,7 @@ function renderTable(trees, searchTerm) {
     return;
   }
 
-  setStatus('', false);
+  setStatus(`Loaded ${trees.length} matching trees.`, '');
   tableCaption.textContent = `Top ${trees.length} largest trees matching "${searchTerm}" — sorted by diameter at breast height`;
 
   trees.forEach((tree, index) => {

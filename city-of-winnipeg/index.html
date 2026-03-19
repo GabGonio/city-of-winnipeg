@@ -18,6 +18,7 @@
         <section class="search-section">
           <form id="searchForm">
             <label for="commonName">Common Tree Name</label>
+            <p id="searchHelp" class="search-help">Enter a tree common name, then press Search.</p>
             <div class="input-row">
               <input
                 type="text"
@@ -26,6 +27,7 @@
                 placeholder="e.g. Ash, Elm, Oak, Maple"
                 required
                 autocomplete="off"
+                aria-describedby="searchHelp"
               />
               <button type="submit">Search</button>
             </div>
@@ -33,7 +35,7 @@
         </section>
 
         <section class="results-section" aria-live="polite">
-          <p id="statusMessage" class="status-message"></p>
+          <p id="statusMessage" class="status-message" role="status" aria-atomic="true"></p>
 
           <div class="table-wrapper" id="tableWrapper" hidden>
             <table id="resultsTable">
