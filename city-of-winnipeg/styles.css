@@ -1,0 +1,226 @@
+/* ==========================================
+   Reset & Base
+   ========================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background-color: #f0f4f0;
+  color: #1a2a1a;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: #2c6b2f;
+}
+
+a:hover {
+  color: #1a4020;
+}
+
+/* ==========================================
+   Layout
+   ========================================== */
+.page-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ==========================================
+   Header
+   ========================================== */
+.site-header {
+  background-color: #2c6b2f;
+  color: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 2rem;
+}
+
+.site-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+}
+
+.site-header p {
+  font-size: 1rem;
+  opacity: 0.9;
+  max-width: 65ch;
+}
+
+/* ==========================================
+   Search Form
+   ========================================== */
+.search-section {
+  background: #fff;
+  border: 1px solid #c8ddca;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-section label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.input-row {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.input-row input {
+  flex: 1;
+  padding: 0.6rem 0.85rem;
+  font-size: 1rem;
+  border: 1px solid #9cbfa0;
+  border-radius: 7px;
+  background: #f8fbf8;
+  transition: border-color 0.2s;
+}
+
+.input-row input:focus {
+  outline: none;
+  border-color: #2c6b2f;
+  background: #fff;
+}
+
+.input-row button {
+  padding: 0.6rem 1.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #2c6b2f;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.input-row button:hover {
+  background-color: #1f4f22;
+}
+
+.input-row button:active {
+  background-color: #163817;
+}
+
+/* ==========================================
+   Status Message
+   ========================================== */
+.status-message {
+  font-size: 0.95rem;
+  color: #4a6450;
+  margin-bottom: 1rem;
+  min-height: 1.4em;
+}
+
+.status-message.error {
+  color: #b23b3b;
+  font-weight: 600;
+}
+
+/* ==========================================
+   Results Table
+   ========================================== */
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid #c8ddca;
+  border-radius: 10px;
+  background: #fff;
+  margin-bottom: 2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+caption {
+  text-align: left;
+  padding: 0.85rem 1rem 0.5rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #2c6b2f;
+}
+
+thead tr {
+  background-color: #2c6b2f;
+  color: #fff;
+}
+
+thead th {
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+tbody tr {
+  border-top: 1px solid #deeede;
+  transition: background-color 0.15s;
+}
+
+tbody tr:hover {
+  background-color: #f2f9f2;
+}
+
+tbody td {
+  padding: 0.6rem 0.85rem;
+  vertical-align: top;
+}
+
+tbody td:first-child {
+  color: #6a8a6d;
+  font-size: 0.85rem;
+}
+
+/* Highlight the DBH column as the key sort field */
+tbody td:nth-child(4) {
+  font-weight: 600;
+  color: #1a4020;
+}
+
+/* ==========================================
+   Footer
+   ========================================== */
+.site-footer {
+  padding: 1.5rem 0 2rem;
+  font-size: 0.88rem;
+  color: #5a7a5d;
+  border-top: 1px solid #c8ddca;
+  margin-top: 1rem;
+}
+
+/* ==========================================
+   Responsive
+   ========================================== */
+@media (max-width: 600px) {
+  .site-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  .input-row button {
+    width: 100%;
+  }
+}
